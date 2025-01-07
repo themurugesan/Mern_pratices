@@ -1,35 +1,35 @@
 /* General Styling */
 .form-container {
-  max-width: 46.88vw;  /* 900px / 1920px * 100 */
+  max-width: 47vw; 
   margin: 0 auto;
-  padding: 1.85vh;  /* 20px / 1080px * 100 */
+  padding: 2vh; 
   font-family: Arial, sans-serif;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 0.93vh;  /* 15px / 1080px * 100 */
+  gap: 1vh;  
 }
 
 label {
-  font-size: 1.25vw;  /* 1.2rem ≈ 1.25vw for 16px base font size */
-  margin-bottom: 0.46vh;  /* 5px / 1080px * 100 */
+  font-size: 2vw; 
+  margin-bottom: 1vh; 
 }
 
 input {
-  padding: 0.93vh;  /* 10px / 1080px * 100 */
-  font-size: 1.04vw;  /* 1rem ≈ 1.04vw for 16px base font size */
+  padding: 1vh;  
+  font-size: 2vw; 
   border: 1px solid #ccc;
-  border-radius: 0.46vw;  /* 5px / 1920px * 100 */
+  border-radius: 1vw; 
 }
 
 button {
-  padding: 1.11vh;  /* 12px / 1080px * 100 */
+  padding: 1vh; 
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 0.46vw;  /* 5px / 1920px * 100 */
+  border-radius: 1vw; 
   cursor: pointer;
 }
 
@@ -39,18 +39,18 @@ button:hover {
 
 .error-message {
   color: red;
-  font-size: 0.83vw;  /* 0.9rem ≈ 0.83vw for 16px base font size */
+  font-size: 1vw; 
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1.85vh;  /* 20px / 1080px * 100 */
+  margin-top: 2vh; 
 }
 
 th,
 td {
-  padding: 1.11vh;  /* 12px / 1080px * 100 */
+  padding: 1vh; 
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -60,12 +60,12 @@ th {
 }
 
 td button {
-  padding: 0.46vh 0.93vw;  /* 5px / 1080px * 100, 10px / 1920px * 100 */
+  padding: 0.5vh 1vw;  
   background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 0.46vw;  /* 5px / 1920px * 100 */
-  margin-right: 0.52vw;  /* 10px / 1920px * 100 */
+  border-radius: 0.46vw; 
+  margin-right: 0.52vw;
   cursor: pointer;
 }
 
@@ -81,28 +81,28 @@ td button:last-child:hover {
   background-color: #c82333;
 }
 
-/* Mobile (default) */
+/* Mobile  */
 @media (max-width: 767px) {
   .form-container {
-      padding: 1.39vh;  /* 15px / 1080px * 100 */
+      padding: 1.39vh;  
   }
 
   form {
-      gap: 0.93vh;  /* 10px / 1080px * 100 */
+      gap: 0.93vh; 
   }
 
   label {
-      font-size: 0.93vw;  /* 1rem ≈ 0.93vw for 16px base font size */
+      font-size: 0.93vw; 
   }
 
   input,
   button {
-      font-size: 1.04vw;  /* 1rem ≈ 1.04vw for 16px base font size */
+      font-size: 1.04vw;
   }
 
   table th, table td {
-      font-size: 0.83vw;  /* 0.9rem ≈ 0.83vw for 16px base font size */
-      padding: 0.74vh;  /* 8px / 1080px * 100 */
+      font-size: 0.83vw;  
+      padding: 0.74vh;  
   }
 
   button {
@@ -110,31 +110,31 @@ td button:last-child:hover {
   }
 
   .error-message {
-      font-size: 0.74vw;  /* 0.8rem ≈ 0.74vw for 16px base font size */
+      font-size: 0.74vw; 
   }
 }
 
-/* Tablet (768px to 1023px) */
+/* Tablet  */
 @media (min-width: 768px) and (max-width: 1023px) {
   .form-container {
-      padding: 1.85vh;  /* 20px / 1080px * 100 */
+      padding: 1.85vh;  
   }
 
   form {
-      gap: 1.11vh;  /* 12px / 1080px * 100 */
+      gap: 1.11vh; 
   }
 
   label {
-      font-size: 1.04vw;  /* 1.1rem ≈ 1.04vw for 16px base font size */
+      font-size: 1.04vw; 
   }
 
   input,
   button {
-      font-size: 1.15vw;  /* 1.1rem ≈ 1.15vw for 16px base font size */
+      font-size: 1.15vw;  
   }
 
   table th, table td {
-      font-size: 0.94vw;  /* 1rem ≈ 0.94vw for 16px base font size */
+      font-size: 0.94vw; 
   }
 
   button {
@@ -142,27 +142,27 @@ td button:last-child:hover {
   }
 }
 
-/* Desktop (1024px and above) */
+/* Desktop  */
 @media (min-width: 1024px) {
   .form-container {
-      padding: 2.78vh;  /* 30px / 1080px * 100 */
+      padding: 2.78vh;  
   }
 
   form {
-      gap: 1.39vh;  /* 15px / 1080px * 100 */
+      gap: 1.39vh;
   }
 
   label {
-      font-size: 1.25vw;  /* 1.2rem ≈ 1.25vw for 16px base font size */
+      font-size: 1.25vw; 
   }
 
   input,
   button {
-      font-size: 1.25vw;  /* 1.2rem ≈ 1.25vw for 16px base font size */
+      font-size: 1.25vw;  
   }
 
   table th, table td {
-      font-size: 1.04vw;  /* 1.1rem ≈ 1.04vw for 16px base font size */
+      font-size: 1.04vw;  
   }
 
   button {

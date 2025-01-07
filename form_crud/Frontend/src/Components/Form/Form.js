@@ -26,6 +26,7 @@ export const Forms = () => {
   function getMaxDateFor18YearsOld() {
     const today = new Date();
     today.setFullYear(today.getFullYear() - 18);
+    
     return today.toISOString().split("T")[0];
   }
 
@@ -109,7 +110,7 @@ export const Forms = () => {
           value={forms.name || ""}
           onChange={Changefn}
           placeholder="Enter your name"
-          pattern="^[A-Za-z\s]+$"
+          pattern="^[a-zA-Z ]*$"
           title="Only alphabets and spaces are allowed"
           required
         />
@@ -119,10 +120,9 @@ export const Forms = () => {
           id="dob"
           name="dob"
           type="date"
-          value={forms.dob || ""}
+          value={forms.dob}
           onChange={Changefn}
           required
-          
           title="Please enter a valid date in the format dd/mm/yyyy (e.g., 25/12/2000)"
           max={getMaxDateFor18YearsOld()}
         />

@@ -1,21 +1,20 @@
 const router = require("express").Router();
-const validator = require('validator');
 let data = [];
 
-// POST route for adding new data
 router.route("/data").post((req, res) => {
     const { name, dob, email } = req.body;
 
-    const nameRegex = /^[A-Za-z!/s]+$/;
+    const nameRegex = /^[a-zA-Z]*$/; 
     if (!nameRegex.test(name)) {
         return res.status(400).json({ msg: "Name must contain only alphabets and spaces." });
     }
 
-    // const dobRegex= /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)\d{2}/
+    const dobRegex=/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
+    if (!dobRegex.test(dob)) {
 
-    // if (!dobRegex.test(dob)) {
-    //     return res.status(400).json({ msg: "Invalid Date format." });
-    // }
+        return res.status(400).json({ msg: "Invalid Date format." });
+    }
+
     const emailRegex=/^(?![.-])([A-Za-z0-9-._%+]+)@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
     if (!emailRegex.test(email)) {
         return res.status(400).json({ msg: "Invalid email address." });
@@ -24,7 +23,7 @@ router.route("/data").post((req, res) => {
     const currentDate = new Date();
     const birthDate = new Date(dob);
     const age = currentDate.getFullYear() - birthDate.getFullYear();
-    if (age < 18 || (age === 18 && currentDate.getMonth() < birthDate.getMonth()) || (age === 18 && currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+    if (age < 18 ) {
         return res.status(400).json({ msg: "You must be at least 18 years old." });
     }
 
@@ -35,54 +34,53 @@ router.route("/data").post((req, res) => {
     return res.status(200).json({ msg: 'Record added successfully', record: newRecord });
 });
 
-// GET route to fetch all data
 router.route("/getdata").get((req, res) => {
     res.status(200).json(data);
 });
 
-// PUT route to update an existing record
 router.route("/data/:id").put((req, res) => {
     const { name, dob, email } = req.body;
     const { id } = req.params;
 
-    const nameRegex = /^[A-Za-z!\s]+$/;
+    const nameRegex = /^[a-zA-Z ]*$/;
     if (!nameRegex.test(name)) {
         return res.status(400).json({ msg: "Name must contain only alphabets and spaces." });
     }
 
-    const isValidDate = validator.isDate(dob);
-    if (!isValidDate) {
+    
+    const dobRegex=/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
+    if (!dobRegex.test(dob)) {
         return res.status(400).json({ msg: "Invalid Date format." });
     }
 
-    if (!validator.isEmail(email)) {
+    const emailRegex=/^(?![.-])([A-Za-z0-9-._%+]+)@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+    if (!emailRegex.test(email)) {
         return res.status(400).json({ msg: "Invalid email address." });
     }
 
     const currentDate = new Date();
     const birthDate = new Date(dob);
     const age = currentDate.getFullYear() - birthDate.getFullYear();
-    if (age < 18 || (age === 18 && currentDate.getMonth() < birthDate.getMonth()) || (age === 18 && currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+    if (age < 18) {
         return res.status(400).json({ msg: "You must be at least 18 years old." });
     }
 
-    // Find the record by ID and update it
     const recordIndex = data.findIndex(record => record.id === parseInt(id));
+    console.log(recordIndex,id,"recordIndexxxxxxxxxxxxx");
+    
     if (recordIndex === -1) {
         return res.status(404).json({ msg: "Record not found." });
     }
 
     data[recordIndex] = { ...data[recordIndex], name, dob, email };
-    console.log(data[recordIndex]);
+    console.log(data,"data after update");
 
     return res.status(200).json({ msg: 'Record updated successfully', record: data[recordIndex] });
 });
 
-// DELETE route to remove a record
 router.route("/data/:id").delete((req, res) => {
     const { id } = req.params;
 
-    // Find the record by ID and remove it
     const recordIndex = data.findIndex(record => record.id === parseInt(id));
     if (recordIndex === -1) {
         return res.status(404).json({ msg: "Record not found." });

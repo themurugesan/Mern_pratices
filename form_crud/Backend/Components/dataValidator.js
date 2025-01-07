@@ -1,6 +1,5 @@
 // controllers/dataValidator.js
 const validator = require('validator');
-
 // Function to validate data
 const validateData = (name, dob, email) => {
     // Validate name (only alphabetic characters and spaces allowed)
@@ -32,5 +31,6 @@ const validateData = (name, dob, email) => {
     // If all checks pass
     return { isValid: true };
 };
+
 
 module.exports = { validateData };
