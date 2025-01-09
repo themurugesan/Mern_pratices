@@ -3,12 +3,12 @@ const DBurl = require("../Database/DB");
 
 
 const Formschema = new mongoose.Schema({
-    name :{
-        type : String
-    },
+    name : String,
     contact :{
         type : Number
-    }
+    },
+    address :Object,
+    education : [Object]
 },{timestamps:true})
 
 const Formschemadb = DBurl.model("formdata",Formschema);

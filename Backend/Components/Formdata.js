@@ -3,9 +3,12 @@ const Formschemadb = require("../Model/Formschema.js");
 
 const Formdata = async(req,res)=>{
     try {
-        const {name,number} = req.body;
+        const {name,contact,address,education} = req.body;
+        console.log(address,"sddress");
+        
 
         const check = await Formschemadb.findOne({name : name});
+
 
         console.log(check,"checkk");
         
@@ -16,7 +19,9 @@ const Formdata = async(req,res)=>{
 
         const data = await Formschemadb.create({
             name : name,
-            contact : number
+            contact : contact,
+            address : address,
+            education:education
         })
 
         console.log(data);
