@@ -1,0 +1,172 @@
+/* General Styling */
+.form-container {
+    max-width: 47vw; 
+    margin: 0 auto;
+    padding: 2vh; 
+    font-family: Arial, sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;  
+  }
+  
+  label {
+    font-size: 2vw; 
+    margin-bottom: 1vh; 
+  }
+  
+  input {
+    padding: 1vh;  
+    font-size: 2vw; 
+    border: 1px solid #ccc;
+    border-radius: 1vw; 
+  }
+  
+  button {
+    padding: 1vh; 
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 1vw; 
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1vw; 
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2vh; 
+  }
+  
+  th,
+  td {
+    padding: 1vh; 
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  td button {
+    padding: 0.5vh 1vw;  
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 0.46vw; 
+    margin-right: 0.52vw;
+    cursor: pointer;
+  }
+  
+  td button:hover {
+    background-color: #218838;
+  }
+  
+  td button:last-child {
+    background-color: #dc3545;
+  }
+  
+  td button:last-child:hover {
+    background-color: #c82333;
+  }
+  
+  /* Mobile  */
+  @media (max-width: 767px) {
+    .form-container {
+        padding: 1.39vh;  
+    }
+  
+    form {
+        gap: 0.93vh; 
+    }
+  
+    label {
+        font-size: 0.93vw; 
+    }
+  
+    input,
+    button {
+        font-size: 1.04vw;
+    }
+  
+    table th, table td {
+        font-size: 0.83vw;  
+        padding: 0.74vh;  
+    }
+  
+    button {
+        width: 100%;
+    }
+  
+    .error-message {
+        font-size: 0.74vw; 
+    }
+  }
+  
+  /* Tablet  */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .form-container {
+        padding: 1.85vh;  
+    }
+  
+    form {
+        gap: 1.11vh; 
+    }
+  
+    label {
+        font-size: 1.04vw; 
+    }
+  
+    input,
+    button {
+        font-size: 1.15vw;  
+    }
+  
+    table th, table td {
+        font-size: 0.94vw; 
+    }
+  
+    button {
+        width: 100%;
+    }
+  }
+  
+  /* Desktop  */
+  @media (min-width: 1024px) {
+    .form-container {
+        padding: 2.78vh;  
+    }
+  
+    form {
+        gap: 1.39vh;
+    }
+  
+    label {
+        font-size: 1.25vw; 
+    }
+  
+    input,
+    button {
+        font-size: 1.25vw;  
+    }
+  
+    table th, table td {
+        font-size: 1.04vw;  
+    }
+  
+    button {
+        width: auto;
+    }
+  }
+  
